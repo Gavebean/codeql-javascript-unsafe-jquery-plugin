@@ -1,6 +1,6 @@
 import javascript
 
-from DataFlow::FunctionNode dollarArg
-where
-  dollarArg = dollarArg.getLastParameter()
-select dollarArg
+from DataFlow::Node dollarArg, DataFlow::FunctionNode node
+where dollarArg = jquery().getAPropertyRead("fn").getAPropertySource() and node = node.getLastParameter()
+select dollarArg, node
+
